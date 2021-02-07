@@ -7,7 +7,6 @@ import com.kgh.dpiprobe.models.OrderBook;
 import com.kgh.dpiprobe.models.OrderItem;
 import com.kgh.dpiprobe.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -20,7 +19,7 @@ or configured in boiler plate code.
 
  */
 @Service
-@EnableMongoAuditing
+//@EnableMongoAuditing
 public class OrderServiceImpl implements OrderService {
 
     @Autowired

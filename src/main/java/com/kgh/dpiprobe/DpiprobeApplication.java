@@ -1,5 +1,7 @@
 package com.kgh.dpiprobe;
 
+import com.kgh.dpiprobe.service.SignalConsumerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -27,8 +29,17 @@ public class DpiprobeApplication {
 		SpringApplication.run(DpiprobeApplication.class, args);
 	}
 
+	@Autowired
+	SignalConsumerService signalConsumerService;
+
+	@Autowired
 	public void DpiprobeApplication() {
+
+		System.out.println("kevin kevin");
+
+		signalConsumerService.init();
 	}
+
 	@Bean
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
