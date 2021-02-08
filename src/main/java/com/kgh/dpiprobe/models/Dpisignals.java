@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "dpisignals")
 @ApiModel(value="Dpisignals", description="The superset of ingested dpi signal data")
-public class Dpisignals {
+public class Dpisignals implements Dpidata{
 
     @Id
     private String id;
@@ -20,16 +20,16 @@ public class Dpisignals {
 */
 
 
-    private Integer Device_ID;
-    private Short   Client_ID;
-    private Short   Office_ID;
-    private Short   BSOD_count;
-    private Short   Hard_reset_count;
-    private Integer Boot_Speed;
-    private Integer Logon_Duration;
-    private Long    CPU_Usage;
-    private Double  Memory_Usage;
-    private Long    System_Free_Space;
+    private Integer deviceID;
+    private Short   clientID;
+    private Short   officeID;
+    private Short   bSODCount;
+    private Short   hardResetCount;
+    private Integer bootSpeed;
+    private Integer logonDuration;
+    private Double  cPUUsage;
+    private Double  memoryUsage;
+    private Long    systemFreeSpace;
 
 
 
@@ -37,117 +37,118 @@ public class Dpisignals {
 
     }
 
-    public Dpisignals(Integer Device_ID, Short Client_ID, Short Office_ID, Short BSOD_count, Short Hard_reset_count, Integer Boot_Speed, Integer Logon_Duration, Long CPU_Usage, Double Memory_Usage, Long System_Free_Space) {
-        this.Device_ID = Device_ID;
-        this.Client_ID = Client_ID;
-        this.Office_ID = Office_ID;
-        this.BSOD_count = BSOD_count;
-        this.Hard_reset_count = Hard_reset_count;
-        this.Boot_Speed = Boot_Speed;
-        this.Logon_Duration = Logon_Duration;
-        this.CPU_Usage = CPU_Usage;
-        this.Memory_Usage = Memory_Usage;
-        this.System_Free_Space = System_Free_Space;
+    public Dpisignals(Integer deviceID, Short clientID, Short officeID, Short bSODCount, Short hardResetCount, Integer bootSpeed, Integer logonDuration, Double cPUUsage, Double memoryUsage, Long systemFreeSpace) {
+        this.deviceID = deviceID;
+        this.clientID = clientID;
+        this.officeID = officeID;
+        this.bSODCount = bSODCount;
+        this.hardResetCount = hardResetCount;
+        this.bootSpeed = bootSpeed;
+        this.logonDuration = logonDuration;
+        this.cPUUsage = cPUUsage;
+        this.memoryUsage = memoryUsage;
+        this.systemFreeSpace = systemFreeSpace;
     }
+
 
     public String getId() {
         return id;
     }
 
-    public Integer getDevice_ID() {
-        return Device_ID;
+    public Integer getDeviceID() {
+        return deviceID;
     }
 
-    public void setDevice_ID(Integer Device_ID) {
-        this.Device_ID = Device_ID;
+    public void setDeviceID(Integer deviceID) {
+        this.deviceID = deviceID;
     }
 
-    public Short getClient_ID() {
-        return Client_ID;
+    public Short getClientID() {
+        return clientID;
     }
 
-    public void setClient_ID(Short Client_ID) {
-        this.Client_ID = Client_ID;
+    public void setClientID(Short clientID) {
+        this.clientID = clientID;
     }
 
-    public Short getOffice_ID() {
-        return Office_ID;
+    public Short getOfficeID() {
+        return officeID;
     }
 
-    public void setOffice_ID(Short Office_ID) {
-        this.Office_ID = Office_ID;
+    public void setOfficeID(Short officeID) {
+        this.officeID = officeID;
     }
 
-    public Short getBSOD_count() {
-        return BSOD_count;
+    public Short getBSODCount() {
+        return bSODCount;
     }
 
-    public void setBSOD_count(Short BSOD_count) {
-        this.BSOD_count = BSOD_count;
+    public void setBSODCount(Short bSODCount) {
+        this.bSODCount = bSODCount;
     }
 
-    public Short getHard_reset_count() {
-        return Hard_reset_count;
+    public Short getHardResetCount() {
+        return hardResetCount;
     }
 
-    public void setHard_reset_count(Short Hard_reset_count) {
-        this.Hard_reset_count = Hard_reset_count;
+    public void setHardResetCount(Short hardResetCount) {
+        this.hardResetCount = hardResetCount;
     }
 
-    public Integer getBoot_Speed() {
-        return Boot_Speed;
+    public Integer getBootSpeed() {
+        return bootSpeed;
     }
 
-    public void setBoot_Speed(Integer Boot_Speed) {
-        this.Boot_Speed = Boot_Speed;
+    public void setBootSpeed(Integer bootSpeed) {
+        this.bootSpeed = bootSpeed;
     }
 
-    public Integer getLogon_Duration() {
-        return Logon_Duration;
+    public Integer getLogonDuration() {
+        return logonDuration;
     }
 
-    public void setLogon_Duration(Integer Logon_Duration) {
-        this.Logon_Duration = Logon_Duration;
+    public void setLogonDuration(Integer logonDuration) {
+        this.logonDuration = logonDuration;
     }
 
-    public Long getCPU_Usage() {
-        return CPU_Usage;
+    public Double getCPUUsage() {
+        return cPUUsage;
     }
 
-    public void setCPU_Usage(Long CPU_Usage) {
-        this.CPU_Usage = CPU_Usage;
+    public void setCPUUsage(Double cPUUsage) {
+        this.cPUUsage = cPUUsage;
     }
 
-    public Double getMemory_Usage() {
-        return Memory_Usage;
+    public Double getMemoryUsage() {
+        return memoryUsage;
     }
 
-    public void setMemory_Usage(Double Memory_Usage) {
-        this.Memory_Usage = Memory_Usage;
+    public void setMemoryUsage(Double memoryUsage) {
+        this.memoryUsage = memoryUsage;
     }
 
-    public Long getSystem_Free_Space() {
-        return System_Free_Space;
+    public Long getSystemFreeSpace() {
+        return systemFreeSpace;
     }
 
-    public void setSystem_Free_Space(Long System_Free_Space) {
-        this.System_Free_Space = System_Free_Space;
+    public void setSystemFreeSpace(Long systemFreeSpace) {
+        this.systemFreeSpace = systemFreeSpace;
     }
 
     @Override
     public String toString() {
 
             return "Dpsignals [id=" + id
-                + ", Device_ID=" + Device_ID
-                + ", Client_ID=" + Client_ID
-                + ", Office_ID=" + Office_ID
-                + ", BSOD_count=" + BSOD_count
-                + ", Hard_reset_count=" + Hard_reset_count
-                + ", Boot_Speed=" + Boot_Speed
-                + ", Logon_Duration=" + Logon_Duration
-                + ", CPU_Usage=" + CPU_Usage
-                + ", Memory_Usage=" + Memory_Usage
-                + ", System_Free_Space=" + System_Free_Space
+                + ", Device_ID=" + deviceID
+                + ", Client_ID=" + clientID
+                + ", Office_ID=" + officeID
+                + ", BSOD_count=" + bSODCount
+                + ", Hard_reset_count=" + hardResetCount
+                + ", Boot_Speed=" + bootSpeed
+                + ", Logon_Duration=" + logonDuration
+                + ", CPU_Usage=" + cPUUsage
+                + ", Memory_Usage=" + memoryUsage
+                + ", System_Free_Space=" + systemFreeSpace
                 + "]";
     }
 }

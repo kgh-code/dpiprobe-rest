@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Document(collection = "dpibase")
 @ApiModel(value="Dpibasevalues", description="The collection of calculated base metrics")
-public class Dpibasevalues {
+public class Dpibasevalues implements Dpidata {
 
     @Id
     private String id;
@@ -21,14 +21,14 @@ public class Dpibasevalues {
 
     private String metricName;
 
-    private Double minValue;
+    private Number minValue;
 
-    private Double maxValue;
+    private Number maxValue;
 
     public Dpibasevalues() {
     }
 
-    public Dpibasevalues(Date createdDate, String metricName, Double minValue, Double maxValue) {
+    public Dpibasevalues(Date createdDate, String metricName, Number minValue, Number maxValue) {
         this.createdDate = createdDate;
         this.metricName = metricName;
         this.minValue = minValue;
@@ -55,19 +55,19 @@ public class Dpibasevalues {
         this.metricName = metricName;
     }
 
-    public Double getMinValue() {
+    public Number getMinValue() {
         return minValue;
     }
 
-    public void setMinValue(Double minValue) {
+    public void setMinValue(Number minValue) {
         this.minValue = minValue;
     }
 
-    public Double getMaxValue() {
+    public Number getMaxValue() {
         return maxValue;
     }
 
-    public void setMaxValue(Double maxValue) {
+    public void setMaxValue(Number maxValue) {
         this.maxValue = maxValue;
     }
 
