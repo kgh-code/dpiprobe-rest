@@ -110,7 +110,7 @@
 						</goals>
 						<configuration>
 							<executable>bash</executable>
-							<commandlineArgs>ingest/pwd.sh</commandlineArgs>
+							<commandlineArgs>ingestdata.sh</commandlineArgs>
 						</configuration>
 					</execution>
 				</executions>

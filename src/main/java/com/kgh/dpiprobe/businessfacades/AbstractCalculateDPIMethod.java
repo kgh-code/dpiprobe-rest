@@ -17,32 +17,26 @@ public abstract class AbstractCalculateDPIMethod {
     protected Dpisignals dpisignals;
     protected Map<String, Map<String,Number>> dpisignalsmap;
     protected Field[] fields;
+    protected Integer dpi;
 
-    public final void calculateDpi(Dpisignals dpisignals) {
+    public final Dpitreatedsignals calculateDpi(Dpisignals dpisignals) {
 
         this.dpisignals = dpisignals;
         this.fields = dpisignals.getClass().getDeclaredFields();
+
         extractRawMetrics();
+
         buildNormalValues();
-
-
-        System.out.println("--build normal values");
-        System.out.println(dpisignalsmap);
 
         invertNormalValues();
 
-        System.out.println("--invert normal values");
-        System.out.println(dpisignalsmap);
+        calculateDPIValue();
 
-        calculateNormalValues();
+        return build_dpitreatedsignals();
 
-        //System.out.println(dpisignalsmap);
-        //return build_dpi();
-
-        //        return dpitreatedsignals;
     }
     /**
-     * Abstract Sort a list of base signals based on a comparator, remove duplicate values
+     * For each Dpisignals, we need to get the raw metric values, store in a objecct hashmap
      */
     private void extractRawMetrics() {
 
@@ -64,9 +58,6 @@ public abstract class AbstractCalculateDPIMethod {
                             dpisignals_metric_calculation.put("difference", basemetricvalues.get("difference"));
 
                             dpisignalsmap.put(entry.getKey(), dpisignals_metric_calculation);
-/*
-                            System.out.format("%n%s: %s", entry.getKey(), field.get(dpisignals));
-*/
                         }
                     }
                 }
@@ -76,64 +67,32 @@ public abstract class AbstractCalculateDPIMethod {
                 e.printStackTrace();
             }
         }
-
-    protected abstract void buildNormalValues();
-
-    protected abstract void invertNormalValues();
-
-    protected abstract void calculateNormalValues();
     /**
-     * Set the working values for the minimmum and maximum values of the metric
+     * For each Dpisignals, we need to calculate the normal values - geometric mean at the moment
      */
-
+    protected abstract void buildNormalValues();
+    /**
+     * Invert some of the values -seperated into another function
+     */
+    protected abstract void invertNormalValues();
+    /**
+     * The DPI is the  sum of all the object normal values * 10/7
+     */
+    protected abstract void calculateDPIValue();
     /**
      * Buiild a candidate Dpitreatedsignals pojo
      */
-    private Dpitreatedsignals build_dpi() {
-        System.out.println("building metric for ");
+    private Dpitreatedsignals build_dpitreatedsignals() {
 
         Dpitreatedsignals dpitreatedsignals = new Dpitreatedsignals();
+
+        dpitreatedsignals.setDpi(this.dpi);
+        dpitreatedsignals.setClientID(this.dpisignals.getClientID());
+        dpitreatedsignals.setOfficeID(this.dpisignals.getOfficeID());
+        dpitreatedsignals.setDeviceID(this.dpisignals.getDeviceID());
 
         return(dpitreatedsignals);
 
     }
-    private void buildMetricsMap(Map<String,Map<String,Number>> basevaluesmap){
-        /*
-        basevaluesmap contains the key values for the number of metrics you need to build
-        could be any number.
-         */
-/*
-        if (BASE_MAP.containsKey(dpibasevalues.getMetricName())) {
-
-
-        } else {
-
-            try {
-
-                Number n = 0;
-
-                if (dpibasevalues.getMaxValue() instanceof Double) {
-                    n = (Double) dpibasevalues.getMaxValue() - (Double) dpibasevalues.getMinValue();
-                }
-                if (dpibasevalues.getMaxValue() instanceof Long) {
-                    n = (Long) dpibasevalues.getMaxValue() - (Long) dpibasevalues.getMinValue();
-                }
-                if (dpibasevalues.getMaxValue() instanceof Integer) {
-                    n = (Integer) dpibasevalues.getMaxValue() - (Integer) dpibasevalues.getMinValue();
-                }
-                HashMap metricMap = new HashMap<String,Number>();
-                metricMap.put("minvalue",dpibasevalues.getMinValue());
-                metricMap.put("maxvalue",dpibasevalues.getMaxValue());
-                metricMap.put("difference",n);
-                BASE_MAP.put(dpibasevalues.getMetricName(),metricMap);
-
-            } catch (ArithmeticException e) {
-                e.printStackTrace();
-            }
-
-        }
-*/
-    }
-
 
 }

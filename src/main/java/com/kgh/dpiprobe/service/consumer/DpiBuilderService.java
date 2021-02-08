@@ -2,6 +2,7 @@ package com.kgh.dpiprobe.service.consumer;
 
 import com.kgh.dpiprobe.models.Dpibasevalues;
 import com.kgh.dpiprobe.models.Dpisignals;
+import com.kgh.dpiprobe.models.Dpitreatedsignals;
 
 import java.util.List;
 
@@ -19,22 +20,5 @@ public interface DpiBuilderService {
      */
     public abstract List<Dpisignals> findAllDpisignals();
     public abstract List<Dpibasevalues> findAllDpibasevalues();
-
-    /*
-    */
-/**
-     * Retrieve raw signal data
-     * @return      list<Dpisignals>    the list off raw signal data
-     *//*
-
-    public abstract List<Dpisignals> findAll();
-    */
-/**
-     * Retrieve success if a Dpibasevalue is inserted
-     * @params      Dpibasevalues       the candidate dpibasevalues metric
-     * @return      Boolean             the list off raw signal data
-     *//*
-
-    public abstract boolean createBaseMetric(Dpibasevalues dpibasevalues);
-*/
+    public abstract boolean createDpitreatedsignals(Dpitreatedsignals dpitreatedsignals);
 }

@@ -18,64 +18,13 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/dpiprobe")
+@RequestMapping("/dpiraw")
 public class DpiRawController {
 
     @Autowired
     DpiRawDataService dpiRawDataService;
 
-/*
-    public String controllerMethod() {
 
-        System.out.println("customQuery = brand " + customQuery.containsKey("brand"));
-        System.out.println("customQuery = limit " + customQuery.containsKey("limit"));
-        System.out.println("customQuery = price " + customQuery.containsKey("price"));
-        System.out.println("customQuery = other " + customQuery.containsKey("other"));
-        System.out.println("customQuery = sort " + customQuery.containsKey("sort"));
-
-        return customQuery.toString();
-    }
-*/
-    @GetMapping("/howto")
-    @ApiOperation(value ="Displays a howto on howto do what you want to do")
-    public ResponseEntity<String> getHowto() {
-
-        try {
-            StringBuffer howto = new StringBuffer("{title:How To Use This API,");
-
-            howto.append("deviceoptions: a map of device query options,");
-            howto.append("dpimatch: less or eqaul or greater or range,");
-            howto.append("dpifrom:Starting range of DPI level,");
-            howto.append("dpito:Ending range of DPI level,");
-            howto.append("dpitest:Test value for a DPI level}");
-
-            return new ResponseEntity<String>(howto.toString(), HttpStatus.OK);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @GetMapping("/device")
-    @ApiOperation(value ="List Dpisignals for a device")
-    public ResponseEntity<List<Dpisignals>> getDpiSignals(
-            @RequestParam(required = false) Map<String, String> deviceOptions) {
-
-        try {
-            List<Dpisignals> dpisignals;
-
-            dpisignals = dpiRawDataService.getDpisignals(deviceOptions);
-            if (dpisignals.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-            return new ResponseEntity<>(dpisignals, HttpStatus.OK);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
     @GetMapping("/device/{deviceid}")
     @ApiOperation(value ="List Dpisignals for a device")
     public ResponseEntity<Dpisignals> getDpiSignals(

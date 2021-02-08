@@ -12,28 +12,11 @@ public final class DpiBuilderConfiguration {
     private static volatile Map<String,Map<String,Number>> BASE_MAP;
 
     private DpiBuilderConfiguration(List<Dpibasevalues> allDpibasevalues) {
-        System.out.println("in singleton");
 
         BASE_MAP = new HashMap<String,Map<String,Number>>();
-        System.out.println(allDpibasevalues);
-        System.out.println(allDpibasevalues.size());
 
         allDpibasevalues.forEach(dpibasevalues -> getBasevalues(dpibasevalues));
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(BASE_MAP);
-        System.out.println(BASE_MAP.size());
-
-        /*
-
-        read the dpi signal basevalues
-        put them in a hashmap, order by date
-        have a key of 1 - 6, however many signals you have, so you can run historical commparisons
-        against previous versions of DPI values ... ie today is better than yesterday, or 10 minutes ago.
-
-         */
     }
 
     public static DpiBuilderConfiguration getInstance(List<Dpibasevalues> allDpibasevalues) {
@@ -52,8 +35,7 @@ public final class DpiBuilderConfiguration {
     private void getBasevalues(Dpibasevalues dpibasevalues){
 
         if (BASE_MAP.containsKey(dpibasevalues.getMetricName())) {
-
-
+            // has multiple entries - histories - but assume just one
         } else {
 
             try {
@@ -63,23 +45,7 @@ public final class DpiBuilderConfiguration {
 
                 Double diff = max - min;
 
-/*
-                if (dpibasevalues.getMaxValue() instanceof Double) {
-                    n = (Double) dpibasevalues.getMaxValue() - (Double) dpibasevalues.getMinValue();
-                }
-                if (dpibasevalues.getMaxValue() instanceof Long) {
-                    n = (Long) dpibasevalues.getMaxValue() - (Long) dpibasevalues.getMinValue();
-                }
-                if (dpibasevalues.getMaxValue() instanceof Integer) {
-                    n = (Integer) dpibasevalues.getMaxValue() - (Integer) dpibasevalues.getMinValue();
-                }
-*/
                 HashMap metricMap = new HashMap<String,Number>();
-/*
-                metricMap.put("minvalue",dpibasevalues.getMinValue());
-                metricMap.put("maxvalue",dpibasevalues.getMaxValue());
-                metricMap.put("difference",n);
-*/
 
                 metricMap.put("minvalue",min);
                 metricMap.put("maxvalue",max);

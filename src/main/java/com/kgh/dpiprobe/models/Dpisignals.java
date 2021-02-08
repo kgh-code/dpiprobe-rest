@@ -15,11 +15,6 @@ public class Dpisignals implements Dpidata{
     @Id
     private String id;
 
-/*
- "CPU_Usage" : 0.005, "Memory_Usage" : 0, "System_Free_Space" : NumberLong("180269625344") }
-*/
-
-
     private Integer deviceID;
     private Short   clientID;
     private Short   officeID;

@@ -4,8 +4,7 @@ import java.util.Map;
 
 public class DpiGeometricMeanMethod extends AbstractCalculateDPIMethod{
 
-    public DpiGeometricMeanMethod() {
-    }
+    public DpiGeometricMeanMethod() {}
 
     @Override
     protected void buildNormalValues() {
@@ -36,11 +35,6 @@ public class DpiGeometricMeanMethod extends AbstractCalculateDPIMethod{
                     }
 
                     dpisignals_metric_calculation.put("xnorm", xnorm);
-                    System.out.println();
-                    System.out.println();
-                    System.out.println(entry.getKey()+"  xnorm "+xnorm+" xtop "+xtop+" xmin "+xmin+" xi "+xi);
-                    System.out.println();
-                    System.out.println();
 
                 }
             }
@@ -59,19 +53,11 @@ public class DpiGeometricMeanMethod extends AbstractCalculateDPIMethod{
             } else {
                 dpisignals_metric_calculation.put("upsidedown", 1 - xnorm);
             }
-/*
-            System.out.println();
-            System.out.println();
-            System.out.println(entry.getKey()+"  xnorm upsidedown "+dpisignals_metric_calculation.get("upsidedown").doubleValue());
-            System.out.println();
-            System.out.println();
-*/
-
         }
     }
 
     @Override
-    protected void calculateNormalValues() {
+    protected void calculateDPIValue() {
 
         Double total = Double.valueOf(0);
         for (Map.Entry<String, Map<String,Number>> entry : dpisignalsmap.entrySet()) {
@@ -91,11 +77,6 @@ public class DpiGeometricMeanMethod extends AbstractCalculateDPIMethod{
 
         Integer dpi = (int) Math.round(total);
 
-        System.out.println();
-        System.out.println();
-        System.out.println("  total upsidedown   "+total+"   DPI  "+dpi);
-        System.out.println();
-        System.out.println();
-
+        this.dpi = dpi;
     }
 }

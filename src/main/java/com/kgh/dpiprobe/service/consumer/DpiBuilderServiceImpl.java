@@ -16,8 +16,10 @@ import com.kgh.dpiprobe.businessfacades.DpiBuilderConfiguration;
 import com.kgh.dpiprobe.businessfacades.DpiGeometricMeanMethod;
 import com.kgh.dpiprobe.dao.DpibasevaluesDao;
 import com.kgh.dpiprobe.dao.DpisignalsDao;
+import com.kgh.dpiprobe.dao.DpitreatedsignalsDao;
 import com.kgh.dpiprobe.models.Dpibasevalues;
 import com.kgh.dpiprobe.models.Dpisignals;
+import com.kgh.dpiprobe.models.Dpitreatedsignals;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,9 @@ public class DpiBuilderServiceImpl implements DpiBuilderService {
     @Autowired
     DpibasevaluesDao dpibasevaluesDao;
 
+    @Autowired
+    DpitreatedsignalsDao dpitreatedsignalsDao;
+
     @Override
     public void init() {
         try {
@@ -45,19 +50,22 @@ public class DpiBuilderServiceImpl implements DpiBuilderService {
 
             DpiBuilderConfiguration dpiBuilderConfiguration = DpiBuilderConfiguration.getInstance(allDpibasevalues);
             /*
-            2. get the sginal data and loop on this, pass each row and singleton ref inot the template method
+            2. get the sginal data and loop on this, pass each row into the template method
              */
             final List<Dpisignals> allDpisignals = this.findAllDpisignals();
 
-            //AbstractCalculateDPIMethod dpiGeometricMeanMethod = new DpiGeometricMeanMethod();
-            allDpisignals.forEach(dpisignals -> new DpiGeometricMeanMethod().calculateDpi(dpisignals));
-
+            allDpisignals.forEach(dpisignals ->
+                    createDpitreatedsignals(new DpiGeometricMeanMethod().calculateDpi(dpisignals))
+            );
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+    /*
+    get the raw untreated signal data
+     */
     @Override
     public List<Dpisignals> findAllDpisignals() {
         try {
@@ -70,7 +78,9 @@ public class DpiBuilderServiceImpl implements DpiBuilderService {
             return null;
         }
     }
-
+    /*
+    get the basevalues for the signal data
+     */
     @Override
     public List<Dpibasevalues> findAllDpibasevalues() {
         try {
@@ -83,6 +93,19 @@ public class DpiBuilderServiceImpl implements DpiBuilderService {
             return null;
         }
     }
+    /*
+    write the treated signal document with a dpi set
+     */
+    @Override
+    public boolean createDpitreatedsignals(Dpitreatedsignals dpitreatedsignals) {
+        try {
+            System.out.println(dpitreatedsignals);
+            dpitreatedsignalsDao.save(dpitreatedsignals);
+            return true;
 
-
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

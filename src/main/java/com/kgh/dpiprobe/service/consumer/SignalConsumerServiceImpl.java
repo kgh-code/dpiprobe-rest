@@ -69,21 +69,12 @@ public class SignalConsumerServiceImpl implements SignalConsumerService {
             if (!createBaseMetric(sfs.calculateMetrics())) {
                 throw new Exception("system free space metrics could not be built");
             }
-            /* build DPI calculations - do this in a singleton, pass this into each calculation - observalble and observer or factory ? or facade?
-            1. have a base object to contain the basevalues (max - min)
-            2. this is a singleton passed into each calculation - how do you provide loose couplilng
-            3. pass this singleton into each instanciated template method to be used in the for-each loop
-
-
-             */
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
-
     /*
     get the raw signal data from the subscribed listeners
     in this instance, we have the signal data populated in our mongodb
