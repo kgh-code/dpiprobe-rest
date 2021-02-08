@@ -1,8 +1,4 @@
-<<<<<<< HEAD
- dpiprobe-rest
-=======
 # dpiprobe-rest
->>>>>>> 11303555ca1712373862ee2580c7b057cdbaf273
 
 An example REST API controller written in spring-boot with minimal dependencies. The application implemments a product / order book HTTP API for a sample pharmeceutical company. Given the API, a client can query the product catalogue for published products. Query the catalogue by product title. Insert a new product, update a product and delete a product.
 Clients can also place orders for products.
@@ -156,74 +152,4 @@ dpibase
 * Candidate for containerisation, but no deployment containers identified.
 
 ## License
-<<<<<<< HEAD
-
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-=======
->>>>>>> 11303555ca1712373862ee2580c7b057cdbaf273
-This application is free to use in any scenario with no responsibility owned by Kevin Hamid.
+Nada
