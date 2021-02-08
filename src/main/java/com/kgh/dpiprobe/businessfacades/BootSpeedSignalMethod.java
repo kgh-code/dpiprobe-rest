@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public final class BootSpeedSignalMethod extends CalculatePercentilelMethod {
+public final class BootSpeedSignalMethod extends AbstractCalculatePercentilelMethod {
 
     public BootSpeedSignalMethod(List<Dpisignals> all) {
         super.all = all;
@@ -37,7 +37,7 @@ public final class BootSpeedSignalMethod extends CalculatePercentilelMethod {
             mu_list.addAll(mu_set);
 
             sortedList = mu_list;
-            metricname = "Boot_Speed";
+            metricname = "bootSpeed";
 
         } catch (Exception e) {
             e.printStackTrace();

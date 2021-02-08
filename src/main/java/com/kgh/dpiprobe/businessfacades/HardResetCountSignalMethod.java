@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public final class HardResetCountSignalMethod extends CalculatePercentilelMethod {
+public final class HardResetCountSignalMethod extends AbstractCalculatePercentilelMethod {
 
     public HardResetCountSignalMethod(List<Dpisignals> all) {
         super.all = all;
@@ -36,7 +36,7 @@ public final class HardResetCountSignalMethod extends CalculatePercentilelMethod
             mu_list.addAll(mu_set);
 
             sortedList = mu_list;
-            metricname = "Hard_Reset_Count";
+            metricname = "hardResetCount";
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,5 +1,6 @@
 package com.kgh.dpiprobe;
 
+import com.kgh.dpiprobe.service.consumer.DpiBuilderService;
 import com.kgh.dpiprobe.service.consumer.SignalConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -33,11 +34,21 @@ public class DpiprobeApplication {
 	SignalConsumerService signalConsumerService;
 
 	@Autowired
+	DpiBuilderService dpiBuilderService;
+
+	@Autowired
 	public void DpiprobeApplication() {
 
 		System.out.println("kevin kevin");
 
 		signalConsumerService.init();
+
+		System.out.println("done done");
+
+		dpiBuilderService.init();
+
+		System.out.println("done again done");
+
 	}
 
 	@Bean

@@ -38,14 +38,15 @@ public class SignalConsumerServiceImpl implements SignalConsumerService {
     public void init() {
         try {
 
-            final List<Dpisignals> all = this.findAll();
+            final List<Dpisignals> all = this.findAllDpisignals();
 
-            CalculatePercentilelMethod mu = new MemoryUsageSignalMethod(all);
-            CalculatePercentilelMethod cpu = new CPUUsageSignalMethod(all);
-            CalculatePercentilelMethod ld = new LogonDurationSignalMethod(all);
-            CalculatePercentilelMethod bs /* haha */ = new BootSpeedSignalMethod(all);
-            CalculatePercentilelMethod hrc = new HardResetCountSignalMethod(all);
-            CalculatePercentilelMethod bc /* Bill! */= new BSODCountSignalMethod(all);
+            AbstractCalculatePercentilelMethod mu = new MemoryUsageSignalMethod(all);
+            AbstractCalculatePercentilelMethod cpu = new CPUUsageSignalMethod(all);
+            AbstractCalculatePercentilelMethod ld = new LogonDurationSignalMethod(all);
+            AbstractCalculatePercentilelMethod bs /* haha */ = new BootSpeedSignalMethod(all);
+            AbstractCalculatePercentilelMethod hrc = new HardResetCountSignalMethod(all);
+            AbstractCalculatePercentilelMethod bc /* Bill! */= new BSODCountSignalMethod(all);
+            AbstractCalculatePercentilelMethod sfs = new SystemFreeSpaceSignalMethod(all);
 
             if (!createBaseMetric(mu.calculateMetrics())) {
                 throw new Exception("memory base metrics could not be built");
@@ -65,7 +66,16 @@ public class SignalConsumerServiceImpl implements SignalConsumerService {
             if (!createBaseMetric(bc.calculateMetrics())) {
                 throw new Exception("BSOD count base metrics could not be built");
             }
+            if (!createBaseMetric(sfs.calculateMetrics())) {
+                throw new Exception("system free space metrics could not be built");
+            }
+            /* build DPI calculations - do this in a singleton, pass this into each calculation - observalble and observer or factory ? or facade?
+            1. have a base object to contain the basevalues (max - min)
+            2. this is a singleton passed into each calculation - how do you provide loose couplilng
+            3. pass this singleton into each instanciated template method to be used in the for-each loop
 
+
+             */
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,10 +86,10 @@ public class SignalConsumerServiceImpl implements SignalConsumerService {
 
     /*
     get the raw signal data from the subscribed listeners
-    in this instance, we hav the signal data populated in our mongodb
+    in this instance, we have the signal data populated in our mongodb
      */
     @Override
-    public List<Dpisignals> findAll() {
+    public List<Dpisignals> findAllDpisignals() {
         try {
             List<Dpisignals> dpisignals = new ArrayList<Dpisignals>();
             dpisignalsDao.findAll().forEach(dpisignals::add);

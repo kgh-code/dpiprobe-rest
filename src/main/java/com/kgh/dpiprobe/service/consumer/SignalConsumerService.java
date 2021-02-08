@@ -17,7 +17,7 @@ public interface SignalConsumerService {
      * Retrieve raw signal data
      * @return      list<Dpisignals>    the list off raw signal data
      */
-    public abstract List<Dpisignals> findAll();
+    public abstract List<Dpisignals> findAllDpisignals();
     /**
      * Retrieve success if a Dpibasevalue is inserted
      * @params      Dpibasevalues       the candidate dpibasevalues metric

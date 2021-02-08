@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public final class MemoryUsageSignalMethod extends CalculatePercentilelMethod {
+public final class MemoryUsageSignalMethod extends AbstractCalculatePercentilelMethod {
 
     public MemoryUsageSignalMethod(List<Dpisignals> all) {
         super.all = all;
@@ -35,7 +35,7 @@ public final class MemoryUsageSignalMethod extends CalculatePercentilelMethod {
             mu_list.addAll(mu_set);
 
             sortedList = mu_list;
-            metricname = "Memory_Usage";
+            metricname = "memoryUsage";
 
         } catch (Exception e) {
             e.printStackTrace();

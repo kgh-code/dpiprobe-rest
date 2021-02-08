@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class CPUUsageSignalMethod extends CalculatePercentilelMethod {
+public class CPUUsageSignalMethod extends AbstractCalculatePercentilelMethod {
 
     public CPUUsageSignalMethod(List<Dpisignals> all) {
         super.all = all;
@@ -36,7 +36,7 @@ public class CPUUsageSignalMethod extends CalculatePercentilelMethod {
             cpu_list.addAll(mu_set);
 
             sortedList = cpu_list;
-            metricname = "CPU_Usage";
+            metricname = "cPUUsage";
 
         } catch (Exception e) {
             e.printStackTrace();

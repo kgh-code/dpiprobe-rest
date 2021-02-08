@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public final class LogonDurationSignalMethod extends CalculatePercentilelMethod {
+public final class LogonDurationSignalMethod extends AbstractCalculatePercentilelMethod {
 
     public LogonDurationSignalMethod(List<Dpisignals> all) {
         super.all = all;
@@ -36,7 +36,7 @@ public final class LogonDurationSignalMethod extends CalculatePercentilelMethod 
             mu_list.addAll(mu_set);
 
             sortedList = mu_list;
-            metricname = "Logon_Duration";
+            metricname = "logonDuration";
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public final class BSODCountSignalMethod extends CalculatePercentilelMethod {
+public final class BSODCountSignalMethod extends AbstractCalculatePercentilelMethod {
 
     public BSODCountSignalMethod(List<Dpisignals> all) {
         super.all = all;
@@ -36,7 +36,7 @@ public final class BSODCountSignalMethod extends CalculatePercentilelMethod {
             mu_list.addAll(mu_set);
 
             sortedList = mu_list;
-            metricname = "BSOD_Count";
+            metricname = "bSODCount";
 
         } catch (Exception e) {
             e.printStackTrace();
