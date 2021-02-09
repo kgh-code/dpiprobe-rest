@@ -67,7 +67,8 @@ Note the progress of the spring boot startup log and ensure the tests run correc
 * Open a 'browser of your choice' and paste in the swagger URL: http://localhost:8080/swagger-ui/
 * Follow the instructions in the swagger UI to perform the API functions:
 
-![docs][swagger-image.png](https://github.com/kgh-code/dpiprobe-server/docs/swagger-image.png)
+![docs][docs/swagger-image.png](https://github.com/kgh-code/dpiprobe-server/docs/swagger-image.png)
+![][docs/swagger-image.png](https://github.com/kgh-code/dpiprobe-server/docs/swagger-image.png)
 
 ## Usage - Mongo
 
