@@ -15,10 +15,10 @@ An example REST API controller written in spring-boot with minimal dependencies.
 ## Requirements
 
 1. calculate the xmin and xmax for each signal metric. At present, 7 metrics provided.
-1.1 calculte the xmin and xmax using the sample data population.
-1.2 calculate the xmin and xmax to 2nd percentile and 98th percentile.
-1.3 store these values against the signal metrics to be used in the geometric distribution function.
-1.4 create a service layer that consumes the sample data for this requirement.
+1.1. calculte the xmin and xmax using the sample data population.
+1.2. calculate the xmin and xmax to 2nd percentile and 98th percentile.
+1.3. store these values against the signal metrics to be used in the geometric distribution function.
+1.4. create a service layer that consumes the sample data for this requirement.
 
 
 
