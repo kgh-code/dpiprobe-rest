@@ -25,18 +25,7 @@ public class DpiTreatedController {
     @Autowired
     DpiTreatedDataService dpiTreatedDataService;
 
-/*
-    public String controllerMethod() {
-
-        System.out.println("customQuery = brand " + customQuery.containsKey("brand"));
-        System.out.println("customQuery = limit " + customQuery.containsKey("limit"));
-        System.out.println("customQuery = price " + customQuery.containsKey("price"));
-        System.out.println("customQuery = other " + customQuery.containsKey("other"));
-        System.out.println("customQuery = sort " + customQuery.containsKey("sort"));
-
-        return customQuery.toString();
-    }
-*/
+    @CrossOrigin
     @GetMapping("/howto")
     @ApiOperation(value ="Displays a howto on howto do what you want to do")
     public ResponseEntity<String> getHowto() {
@@ -56,6 +45,7 @@ public class DpiTreatedController {
         }
     }
 
+    @CrossOrigin
     @GetMapping("/device/{deviceid}")
     @ApiOperation(value ="List Dpitreatedsignals for a device")
     public ResponseEntity<Dpitreatedsignals> getDpiSignals(
@@ -74,6 +64,7 @@ public class DpiTreatedController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @CrossOrigin
     @GetMapping("/clients/{clientid}")
     @ApiOperation(value ="List Dpitreatedsignals for a particular client number")
     public ResponseEntity<List<Dpitreatedsignals>> getAllDpiSignals(
@@ -112,6 +103,7 @@ public class DpiTreatedController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @CrossOrigin
     @GetMapping("/clients/{clientid}/{officeid}")
     @ApiOperation(value ="List Dpitreatedsignals for a particular client number and an office number")
     public ResponseEntity<List<Dpitreatedsignals>> getAllDpiSignals(

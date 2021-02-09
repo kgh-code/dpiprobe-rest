@@ -6,28 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4013523d-738e-42b6-8a9c-8bcd243558d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/controllers/DpiRawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/controllers/DpiRawController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/controllers/DpiTreatedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/controllers/DpiTreatedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/dao/DpisignalsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/dao/DpisignalsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/dao/DpitreatedsignalsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/dao/DpitreatedsignalsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/service/restapi/DpiRawDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/service/restapi/DpiRawDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/service/restapi/DpiRawDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/service/restapi/DpiRawDataServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/controllers/DpiRawController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/controllers/DpiRawController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/controllers/DpiTreatedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/controllers/DpiTreatedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/dao/DpisignalsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/dao/DpisignalsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/dao/DpitreatedsignalsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/dao/DpitreatedsignalsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/service/restapi/DpiRawDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/service/restapi/DpiRawDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/service/restapi/DpiRawDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/service/restapi/DpiRawDataServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dpiprobe-rest-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/dpiprobe-rest-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dpiprobe-rest-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/dpiprobe-rest-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.kgh.dpiprobe.DpiprobeApplicationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.kgh.dpiprobe.controllers.ProductOrdersControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.kgh.dpiprobe.DpiprobeApplicationTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.kgh.dpiprobe.controllers.ProductOrdersControllerTest.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

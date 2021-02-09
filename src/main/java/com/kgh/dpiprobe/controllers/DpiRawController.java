@@ -24,7 +24,7 @@ public class DpiRawController {
     @Autowired
     DpiRawDataService dpiRawDataService;
 
-
+    @CrossOrigin
     @GetMapping("/device/{deviceid}")
     @ApiOperation(value ="List Dpisignals for a device")
     public ResponseEntity<Dpisignals> getDpiSignals(
@@ -44,6 +44,7 @@ public class DpiRawController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @CrossOrigin
     @GetMapping("/clients/{clientid}")
     @ApiOperation(value ="List Dpisignals for a particular client number")
     public ResponseEntity<List<Dpisignals>> getAllDpiSignals(
@@ -65,6 +66,7 @@ public class DpiRawController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @CrossOrigin
     @GetMapping("/clients/{clientid}/{officeid}")
     @ApiOperation(value ="List Dpisignals for a particular client number and an office number")
     public ResponseEntity<List<Dpisignals>> getAllDpiSignals(
