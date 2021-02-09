@@ -1,7 +1,6 @@
-# dpiprobe-rest
+# dpiprobe-server
 
-An example REST API controller written in spring-boot with minimal dependencies. The application implemments a product / order book HTTP API for a sample pharmeceutical company. Given the API, a client can query the product catalogue for published products. Query the catalogue by product title. Insert a new product, update a product and delete a product.
-Clients can also place orders for products.
+An example REST API controller written in spring-boot with minimal dependencies. The application implemments a DPI listing API for a device monitoring company. Given the API, a client can query the DPI levels for a client, and offie and individual devices - with  options.
 
 ## Prerequisites
 
@@ -23,7 +22,7 @@ Clients can also place orders for products.
 
 
 
-## Installation for Postman, Mongo, dpiprobe-rest
+## Installation for Postman, Mongo, dpiprobe-server
 
 A linux OS was used to install the application. I assume you have an IDE and a JDK installed.For Postman and Mongo, you can follow these steps. 
 
@@ -33,7 +32,7 @@ A linux OS was used to install the application. I assume you have an IDE and a J
 
 ```bash
 
-~/dev git clone git@github.com:kgh-code/dpiprobe-rest.git
+~/dev git clone git@github.com:kgh-code/dpiprobe-server.git
 
 ```
 
@@ -41,9 +40,9 @@ After you have checked out the project, you need to build it using maven (I plac
 
 ```bash
 
-~/dev cd dpiprobe-rest
+~/dev cd dpiprobe-server
 
-~/dev/dpiprobe-rest/mvn clean install
+~/dev/dpiprobe-server/mvn clean install
 
 The 'mvn clean install' performs an initial ingest of the sample data in the file device_performance_index.csv
 The 'mvn clean install' deletes collections in a mongo database dpisignals, dpibase, dpitreatedsignals
@@ -60,7 +59,7 @@ The 'mvn clean install' deletes collections in a mongo database dpisignals, dpib
 
 ```bash
 
-~/dev/dpiprobe-rest/mvn spring-boot:run
+~/dev/dpiprobe-server/mvn spring-boot:run
 
 ```
 Note the progress of the spring boot startup log and ensure the tests run correctly.
@@ -68,8 +67,7 @@ Note the progress of the spring boot startup log and ensure the tests run correc
 * Open a 'browser of your choice' and paste in the swagger URL: http://localhost:8080/swagger-ui/
 * Follow the instructions in the swagger UI to perform the API functions:
 
-
-![an image of swagger used to acccess the API for dpiprobe-rest by kevin hamid.](https://github.com/kgh-code/dpiprobe-rest/blob/master/docs/swagger-image.png)
+![an image of swagger used to acccess the API for dpiprobe-serverrest by kevin hamid.](https://github.com/kgh-code/dpiprobe-server/blob/master/docs/swagger-image.png)
 
 
 ## Usage - Mongo
@@ -78,7 +76,7 @@ Note the progress of the spring boot startup log and ensure the tests run correc
 
 ```bash
 
-~/dev/dpiprobe-rest/systemctl status mongodb
+~/dev/dpiprobe-server/systemctl status mongodb
 
 ```
 
@@ -152,6 +150,7 @@ dpibase
 * Testing is pretty basic - just testing the controller httpstatus messages, I mocked the service call, but still need to mock the DAO's
 * Persistence should probably be via a que, but for this example the service is on the same JVM.
 * Candidate for containerisation, but no deployment containers identified.
+* Code style, lazy use of autoboxing for a fast delivery.
 * Code style, comments are basic, no javadocs, some camels have one hump, some camels have two humps, some are just horses.
 ## License
 Nada
