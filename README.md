@@ -70,6 +70,8 @@ Note the progress of the spring boot startup log and ensure the tests run correc
 ![docs][docs/swagger-image.png](https://github.com/kgh-code/dpiprobe-server/docs/swagger-image.png)
 ![][docs/swagger-image.png](https://github.com/kgh-code/dpiprobe-server/docs/swagger-image.png)
 
+![](https://github.com/kgh-code/dpiprobe-server/blob/main/docs/swagger-image.png)
+
 ## Usage - Mongo
 
 * Ensure your mongodb is running - Mine runs as a service:
