@@ -5,14 +5,15 @@
  */
 package com.kgh.dpiprobe.controllers;
 
-import com.kgh.dpiprobe.models.Dpisignals;
-import com.kgh.dpiprobe.service.restapi.DpiRawDataService;
+import com.kgh.dpiprobe.models.Dpitreatedsignals;
+import com.kgh.dpiprobe.service.restapi.DpiTreatedDataService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -22,7 +23,7 @@ import java.util.Optional;
 public class DpiTreatedController {
 
     @Autowired
-    DpiRawDataService dpiRawDataService;
+    DpiTreatedDataService dpiTreatedDataService;
 
 /*
     public String controllerMethod() {
@@ -43,11 +44,9 @@ public class DpiTreatedController {
         try {
             StringBuffer howto = new StringBuffer("{title:How To Use This API,");
 
-            howto.append("deviceoptions: a map of device query options,");
-            howto.append("dpimatch: less or eqaul or greater or range,");
-            howto.append("dpifrom:Starting range of DPI level,");
-            howto.append("dpito:Ending range of DPI level,");
-            howto.append("dpitest:Test value for a DPI level}");
+            howto.append("deviceoptions: ?filter=LTE&val1=10,");
+            howto.append("deviceoptions: ?filter=GTE&val1=1,");
+            howto.append("deviceoptions: ?filter=BETWEEN&val1=2&val2=8,");
 
             return new ResponseEntity<String>(howto.toString(), HttpStatus.OK);
 
@@ -58,16 +57,15 @@ public class DpiTreatedController {
     }
 
     @GetMapping("/device/{deviceid}")
-    @ApiOperation(value ="List Dpisignals for a device")
-    public ResponseEntity<Dpisignals> getDpiSignals(
-            @PathVariable("deviceid") Integer deviceId,
-            @RequestParam(required = false) Map<String, String> deviceOptions) {
+    @ApiOperation(value ="List Dpitreatedsignals for a device")
+    public ResponseEntity<Dpitreatedsignals> getDpiSignals(
+            @PathVariable("deviceid") Integer deviceId) {
 
         try {
-            Optional<Dpisignals> dpisignals = dpiRawDataService.getOneDpisignals(deviceId);
+            Optional<Dpitreatedsignals> dpitreatedsignals = dpiTreatedDataService.getOneDpitreatedsignals(deviceId);
 
-            if (dpisignals.isPresent()) {
-                return new ResponseEntity<>(dpisignals.get(), HttpStatus.OK);
+            if (dpitreatedsignals.isPresent()) {
+                return new ResponseEntity<>(dpitreatedsignals.get(), HttpStatus.OK);
             }
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
@@ -76,42 +74,75 @@ public class DpiTreatedController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/customers/{customerid}")
-    @ApiOperation(value ="List Dpisignals for a particular customer number")
-    public ResponseEntity<List<Dpisignals>> getAllDpiSignals(
-            @PathVariable("customerid") Integer customerId,
-            @RequestParam(required = false) Map<String, String> deviceOptions) {
+    @GetMapping("/clients/{clientid}")
+    @ApiOperation(value ="List Dpitreatedsignals for a particular client number")
+    public ResponseEntity<List<Dpitreatedsignals>> getAllDpiSignals(
+            @PathVariable("clientid") Integer clientId,
+            @RequestParam (required = false, name="filter") String filter,
+            @RequestParam (required = false, name="val1") Integer val1,
+            @RequestParam (required = false, name="val2") Integer val2
+            ) {
 
 
         try {
-            List<Dpisignals> dpisignals;
+            List<Dpitreatedsignals> dpitreatedsignals;
 
-            dpisignals = dpiRawDataService.getDpisignalsForCustomer(customerId);
-            if (dpisignals.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            Map<String,Object> options = new HashMap<String,Object>();
+            if(filter == null || filter.isEmpty()) {
+
+                dpitreatedsignals = dpiTreatedDataService.getDpitreatedsignalsForClient(clientId);
+                if (dpitreatedsignals.isEmpty()) {
+                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                }
+            } else {
+                options.put("filter", filter);
+                options.put("val1", val1);
+                options.put("val2", val2);
+                dpitreatedsignals = dpiTreatedDataService.getDpitreatedsignalsForClient(clientId, options);
+                if (dpitreatedsignals.isEmpty()) {
+                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                }
             }
-            return new ResponseEntity<>(dpisignals, HttpStatus.OK);
+            return new ResponseEntity<>(dpitreatedsignals, HttpStatus.OK);
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/customers/{customerid}/{officeid}")
-    @ApiOperation(value ="List Dpisignals for a particular customer number and an office number")
-    public ResponseEntity<List<Dpisignals>> getAllDpiSignals(
-            @PathVariable("customerid") Integer customerId,
+    @GetMapping("/clients/{clientid}/{officeid}")
+    @ApiOperation(value ="List Dpitreatedsignals for a particular client number and an office number")
+    public ResponseEntity<List<Dpitreatedsignals>> getAllDpiSignals(
+            @PathVariable("clientid") Integer clientId,
             @PathVariable("officeid") Integer officeId,
-            @RequestParam(required = false) Map<String, String> deviceOptions) {
+            @RequestParam (required = false, name="filter") String filter,
+            @RequestParam (required = false, name="val1") Integer val1,
+            @RequestParam (required = false, name="val2") Integer val2
+            ) {
+
 
         try {
-            List<Dpisignals> dpisignals;
+            List<Dpitreatedsignals> dpitreatedsignals;
 
-            dpisignals = dpiRawDataService.getDpisignalsForCustomer(customerId, officeId);
-            if (dpisignals.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            Map<String,Object> options = new HashMap<String,Object>();
+            if(filter == null || filter.isEmpty()) {
+
+                dpitreatedsignals = dpiTreatedDataService.getDpitreatedsignalsForClient(clientId, officeId);
+                if (dpitreatedsignals.isEmpty()) {
+                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                }
+            } else {
+                options.put("filter", filter);
+                options.put("val1", val1);
+                options.put("val2", val2);
+                dpitreatedsignals = dpiTreatedDataService.getDpitreatedsignalsForClient(clientId, officeId, options);
+                if (dpitreatedsignals.isEmpty()) {
+                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                }
             }
-            return new ResponseEntity<>(dpisignals, HttpStatus.OK);
+            return new ResponseEntity<>(dpitreatedsignals, HttpStatus.OK);
 
         } catch (Exception e) {
             e.printStackTrace();

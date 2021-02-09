@@ -15,6 +15,6 @@ import java.util.Optional;
 public interface DpiRawDataService {
     public abstract List<Dpisignals> getDpisignals(Map<String,String> dpioptions);
     public abstract Optional<Dpisignals> getOneDpisignals(Integer deviceId);
-    public abstract List<Dpisignals> getDpisignalsForCustomer(Integer customerId);
-    public abstract List<Dpisignals> getDpisignalsForCustomer(Integer customerId, Integer officeId);
+    public abstract List<Dpisignals> getDpisignalsForClient(Integer clientId);
+    public abstract List<Dpisignals> getDpisignalsForClient(Integer clientId, Integer officeId);
 }

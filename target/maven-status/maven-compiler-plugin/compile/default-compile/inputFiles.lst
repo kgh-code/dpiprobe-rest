@@ -3,13 +3,13 @@
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/businessfacades/BSODCountSignalMethod.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/controllers/DpiTreatedController.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/businessfacades/LogonDurationSignalMethod.java
-/home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/controllers/ProductOrdersController.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/models/Dpidata.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/businessfacades/MemoryUsageSignalMethod.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/businessfacades/BootSpeedSignalMethod.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/dao/DpibasevaluesDao.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/businessfacades/DpiGeometricMeanMethod.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/businessfacades/SystemFreeSpaceSignalMethod.java
+/home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/service/restapi/DpiTreatedDataServiceImpl.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/models/Dpitreatedsignals.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/businessfacades/CPUUsageSignalMethod.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/controllers/DpiRawController.java
@@ -23,6 +23,7 @@
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/DpiprobeApplication.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/service/consumer/DpiBuilderService.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/models/Dpisignals.java
+/home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/service/restapi/DpiTreatedDataService.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/service/restapi/DpiRawDataServiceImpl.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/service/consumer/SignalConsumerServiceImpl.java
 /home/kevin/dev/WIP-PROJECTS/dpiprobe-rest/src/main/java/com/kgh/dpiprobe/service/restapi/DpiRawDataService.java

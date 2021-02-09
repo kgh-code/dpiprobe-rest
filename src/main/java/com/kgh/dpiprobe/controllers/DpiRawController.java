@@ -44,17 +44,17 @@ public class DpiRawController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/customers/{customerid}")
-    @ApiOperation(value ="List Dpisignals for a particular customer number")
+    @GetMapping("/clients/{clientid}")
+    @ApiOperation(value ="List Dpisignals for a particular client number")
     public ResponseEntity<List<Dpisignals>> getAllDpiSignals(
-            @PathVariable("customerid") Integer customerId,
+            @PathVariable("clientid") Integer clientId,
             @RequestParam(required = false) Map<String, String> deviceOptions) {
 
 
         try {
             List<Dpisignals> dpisignals;
 
-            dpisignals = dpiRawDataService.getDpisignalsForCustomer(customerId);
+            dpisignals = dpiRawDataService.getDpisignalsForClient(clientId);
             if (dpisignals.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
@@ -65,17 +65,17 @@ public class DpiRawController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/customers/{customerid}/{officeid}")
-    @ApiOperation(value ="List Dpisignals for a particular customer number and an office number")
+    @GetMapping("/clients/{clientid}/{officeid}")
+    @ApiOperation(value ="List Dpisignals for a particular client number and an office number")
     public ResponseEntity<List<Dpisignals>> getAllDpiSignals(
-            @PathVariable("customerid") Integer customerId,
+            @PathVariable("clientid") Integer clientId,
             @PathVariable("officeid") Integer officeId,
             @RequestParam(required = false) Map<String, String> deviceOptions) {
 
         try {
             List<Dpisignals> dpisignals;
 
-            dpisignals = dpiRawDataService.getDpisignalsForCustomer(customerId, officeId);
+            dpisignals = dpiRawDataService.getDpisignalsForClient(clientId, officeId);
             if (dpisignals.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

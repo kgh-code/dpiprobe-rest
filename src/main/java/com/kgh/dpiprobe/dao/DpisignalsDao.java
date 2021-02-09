@@ -12,7 +12,7 @@ import java.util.Optional;
  */
 public interface DpisignalsDao extends MongoRepository<Dpisignals, String> {
     List<Dpisignals> findAll();
-    Optional<Dpisignals> findByDeviceID(Integer deviceid);
-    List<Dpisignals> findByClientID(Integer clientid);
-    List<Dpisignals> findByClientIDAndOfficeID(Integer clientid, Integer officeid);
+    Optional<Dpisignals> findByDeviceID(int deviceid);
+    List<Dpisignals> findByClientID(int clientid);
+    List<Dpisignals> findByClientIDAndOfficeID(int clientid, int officeid);
 }

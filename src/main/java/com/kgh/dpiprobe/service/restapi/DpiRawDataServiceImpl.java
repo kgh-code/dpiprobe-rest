@@ -12,7 +12,6 @@ This is our consumer implementation, obviously only for demonstration purposes h
 
 package com.kgh.dpiprobe.service.restapi;
 
-import com.kgh.dpiprobe.dao.DpibasevaluesDao;
 import com.kgh.dpiprobe.dao.DpisignalsDao;
 import com.kgh.dpiprobe.models.Dpisignals;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,6 @@ public class DpiRawDataServiceImpl implements DpiRawDataService {
     @Autowired
     DpisignalsDao dpisignalsDao;
 
-    @Autowired
-    DpibasevaluesDao dpibasevaluesDao;
 
     @Override
     public List<Dpisignals> getDpisignals(Map<String,String> dpioptions) {
@@ -46,10 +43,10 @@ public class DpiRawDataServiceImpl implements DpiRawDataService {
     }
 
     @Override
-    public List<Dpisignals> getDpisignalsForCustomer(Integer customerId) {
+    public List<Dpisignals> getDpisignalsForClient(Integer clientId) {
         try {
             List<Dpisignals> dpisignals = new ArrayList<Dpisignals>();
-            dpisignalsDao.findByClientID(customerId).forEach(dpisignals::add);
+            dpisignalsDao.findByClientID(clientId).forEach(dpisignals::add);
             return dpisignals;
 
         } catch (Exception e) {
@@ -59,21 +56,11 @@ public class DpiRawDataServiceImpl implements DpiRawDataService {
     }
 
     @Override
-    public List<Dpisignals> getDpisignalsForCustomer(Integer customerId, Integer officeId) {
+    public List<Dpisignals> getDpisignalsForClient(Integer clientId, Integer officeId) {
         try {
             List<Dpisignals> dpisignals = new ArrayList<Dpisignals>();
 
-/*
-            Criteria c = new Criteria();
-            c.and("clientID").is(customerId);
-            c.and("officeID").is(officeId);
-            Query q = new Query().addCriteria(c);
-
-            @Query("{'name' : ?0 , 'band' : ?1}");
-*/
-
-
-            dpisignalsDao.findByClientIDAndOfficeID(customerId,officeId).forEach(dpisignals::add);
+            dpisignalsDao.findByClientIDAndOfficeID(clientId,officeId).forEach(dpisignals::add);
             return dpisignals;
 
         } catch (Exception e) {
@@ -93,12 +80,3 @@ public class DpiRawDataServiceImpl implements DpiRawDataService {
         }
     }
 }
-/*
-            return dpisignalsDao.findByQuery(query);
-*/
-//            Optional<Dpisignals> dpisignals;
-
-/*
-            Query query = new Query();
-            query.addCriteria(Criteria.where("Device_ID").is(deviceid));
-*/

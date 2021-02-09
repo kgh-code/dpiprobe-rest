@@ -140,6 +140,8 @@ dpibase
 
 ## Improvements
 
+
+* using mongo for ease of use and also the raw signal data is 'throw away', the Dpitreatedsignals and the Dpibase should probably be in a transactional SQL DB if needed
 * There should be a check to see how often a device sends data IE average = 6 (every 10 mins) x 24, if you dont receive on average this number of signals in a day, then alert.
 * I assume the raw signal data has been validated upstream.
 * The consumer should poll for updates of raw signal data every now and then.
@@ -150,6 +152,6 @@ dpibase
 * Testing is pretty basic - just testing the controller httpstatus messages, I mocked the service call, but still need to mock the DAO's
 * Persistence should probably be via a que, but for this example the service is on the same JVM.
 * Candidate for containerisation, but no deployment containers identified.
-
+* Code style, comments are basic, no javadocs, some camels have one hump, some camels have two humps, some are just horses.
 ## License
 Nada
