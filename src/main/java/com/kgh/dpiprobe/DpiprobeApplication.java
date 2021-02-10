@@ -39,7 +39,6 @@ public class DpiprobeApplication {
 	@Autowired
 	public void DpiprobeApplication() {
 
-		System.out.println("kevin kevin");
 
 		signalConsumerService.init();
 
