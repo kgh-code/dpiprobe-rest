@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4013523d-738e-42b6-8a9c-8bcd243558d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/controllers/DpiRawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/controllers/DpiRawController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/controllers/DpiTreatedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/controllers/DpiTreatedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/controllers/DpiRawController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/controllers/DpiRawController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/controllers/DpiTreatedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kgh/dpiprobe/controllers/DpiTreatedController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/service/consumer/SignalConsumerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kgh/dpiprobe/service/consumer/SignalConsumerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dpiprobe-rest-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/dpiprobe-rest-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/dpiprobe-rest-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/dpiprobe-rest-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
